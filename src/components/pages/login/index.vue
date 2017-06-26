@@ -22,7 +22,8 @@
 
 <script>
   import store from '@/store'
-  import HBAPI from '@/http'
+  import { auth } from '@/request'
+
   export default {
     name: 'signin',
     data: () => ({
@@ -31,10 +32,7 @@
     }),
     methods: {
       login () {
-        HBAPI.post('authorize', {
-          email: this.email,
-          password: this.password
-        })
+        auth.authorize(this.email, this.password)
           .then((response) => {
             store.dispatch('handleLoginLogout', { token: response.data.token })
           })
