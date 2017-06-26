@@ -8,7 +8,7 @@
 
     <b-collapse is-nav id="nav_collapse">
       <b-nav is-nav-bar>
-        <b-nav-item v-for="navItem in navItems">
+        <b-nav-item v-for="navItem in navItems" :key="navItem.value">
           {{ navItem.value }}
         </b-nav-item>
       </b-nav>
