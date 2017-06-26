@@ -21,13 +21,14 @@
 </template>
 
 <script>
+  import store from '@/store'
   import HBAPI from '@/http'
   export default {
     name: 'signin',
-    data: {
+    data: () => ({
       email: '',
       password: ''
-    },
+    }),
     methods: {
       login () {
         HBAPI.post('authorize', {
@@ -35,7 +36,7 @@
           password: this.password
         })
           .then((response) => {
-            console.log(response)
+            store.dispatch('handleLoginLogout', { token: response.data.token })
           })
       }
     }

@@ -9,7 +9,7 @@
     <b-collapse is-nav id="nav_collapse">
       <b-nav is-nav-bar>
         <b-nav-item v-for="navItem in navItems">
-          {{ navItem }}
+          {{ navItem.value }}
         </b-nav-item>
       </b-nav>
 
