@@ -19,8 +19,8 @@
         <b-nav-item v-if="loggedIn" @click="loginToggle(false)" class="text-white">
           SignOut
         </b-nav-item>
-        <b-nav-item v-else @click="loginToggle(true)" class="text-white">
-          SignIn
+        <b-nav-item v-else class="text-white">
+          <router-link class="text-white" to="login">SignIn</router-link>
         </b-nav-item>
       </b-nav>
 
