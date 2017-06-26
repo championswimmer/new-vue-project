@@ -8,6 +8,6 @@ const axiosAuth = axios.create({
 })
 
 export default {
-  signup: (name, email, password) => axiosAuth.post('signup', {name, email, password}),
-  authorize: (email, password) => axiosAuth.post('authorize', {email, password})
+  signup: (name, email, password) => axiosAuth.post('signup', { name, email, password }),
+  authorize: (email, password) => axiosAuth.post('authorize', { email, password })
 }
