@@ -1,5 +1,3 @@
-// http://eslint.org/docs/user-guide/configuring
-
 module.exports = {
   root: true,
   parser: 'babel-eslint',
@@ -9,10 +7,16 @@ module.exports = {
   env: {
     browser: true,
   },
-  extends: 'prettier',
-  // required to lint *.vue files
+  extends: [
+    'eslint:recommended',
+    'standard',
+    'plugin:vue/base',
+  ],
+
   plugins: [
     'html',
-    'prettier'
+    'vue',
   ],
+  rules: {
+  }
 }
