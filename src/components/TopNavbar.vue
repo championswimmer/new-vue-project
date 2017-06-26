@@ -14,7 +14,7 @@
       </b-nav>
 
     </b-collapse>
-
+    <!-- FIXME: Line broken on spaced words -->
       <b-nav is-nav-bar>
         <b-nav-item v-if="loggedIn" @click="loginToggle(false)" class="text-white">
           SignOut
@@ -42,7 +42,7 @@
     },
     methods: {
       loginToggle (value) {
-        value ? store.commit('logIn') : store.commit('logOut')
+        store.dispatch('handleLoginLogout', value)
       }
     }
   }
