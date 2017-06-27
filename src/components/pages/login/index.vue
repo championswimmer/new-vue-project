@@ -21,8 +21,8 @@
 </template>
 
 <script>
-  import store from '@/store'
-  import { auth } from '@/request'
+  import store from 'src/store'
+  import { auth } from 'src/request'
 
   export default {
     name: 'signin',

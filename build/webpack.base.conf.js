@@ -9,7 +9,7 @@ function resolve (dir) {
 
 module.exports = {
   entry: {
-    app: './src/main.js'
+    app: './src/main.ts'
   },
   output: {
     path: config.build.assetsRoot,
@@ -19,10 +19,11 @@ module.exports = {
       : config.dev.assetsPublicPath
   },
   resolve: {
-    extensions: ['.js', '.vue', '.json'],
+    extensions: ['.js', '.vue', '.json', '.ts'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
-      '@': resolve('src')
+      '@': resolve('src'),
+      'src': resolve('src'),
     }
   },
   module: {
@@ -37,9 +38,19 @@ module.exports = {
         }
       },
       {
+        test: /\.ts$/,
+        loader: 'ts-loader',
+        include: [resolve('src'), resolve('test')],
+        options: {
+          appendTsSuffixTo: [/\.vue$/]
+        }
+      },
+      {
         test: /\.vue$/,
         loader: 'vue-loader',
-        options: vueLoaderConfig
+        options: {
+          esModule: true
+        },
       },
       {
         test: /\.js$/,
@@ -62,6 +73,6 @@ module.exports = {
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         }
       }
-    ]
+    ],
   }
 }
