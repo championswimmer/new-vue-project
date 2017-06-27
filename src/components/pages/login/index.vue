@@ -20,23 +20,22 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+  import Vue from 'vue'
+  import Component from 'vue-class-component'
   import store from 'src/store'
   import { auth } from 'src/request'
 
-  export default {
-    name: 'signin',
-    data: () => ({
-      email: '',
-      password: ''
-    }),
-    methods: {
-      login () {
-        auth.authorize(this.email, this.password)
-          .then((response) => {
-            store.dispatch('handleLoginLogout', { token: response.data.token })
-          })
-      }
+  @Component
+  export default class LoginIndex extends Vue {
+    name = 'signin'
+    email: String = ''
+    password: String = ''
+    login () {
+      auth.authorize(this.email, this.password)
+        .then((response) => {
+          store.dispatch('handleLoginLogout', { token: response.data.token })
+        })
     }
   }
 </script>

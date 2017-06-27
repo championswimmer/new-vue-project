@@ -16,7 +16,8 @@
     "removeComments": true,
     "suppressImplicitAnyIndexErrors": true,
     "allowSyntheticDefaultImports": true,
-    "allowJs": true
+    "allowJs": true,
+    "baseUrl": "."
   },
   "include": [
     "./src/**/*.ts"
